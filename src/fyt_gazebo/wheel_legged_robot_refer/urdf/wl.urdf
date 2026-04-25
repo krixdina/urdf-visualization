@@ -3,6 +3,11 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot name="wl">
+    <!--
+        注意：URDF 规范本身允许 base_link 带 inertial 惯量；这里的问题不是 URDF 不合法，
+        而是 robot_state_publisher 使用的 KDL 不支持“根链接”带惯量，会打印根链接惯量警告。
+        因此增加一个无惯量的 base_footprint 作为 URDF 树根，再用 fixed joint 连接到 base_link。
+    -->
     <link name="base_footprint" />
     <joint name="base_footprint_joint" type="fixed">
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -113,6 +118,12 @@
             </geometry>
         </collision>
     </link>
+    <!--
+        车轮是可无限旋转的关节，适合用 continuous。若使用 revolute，则表示有限角度转动关节，
+        joint_state_publisher 会要求提供 lower/upper 上下限；原模型只给了 effort/velocity，
+        所以会提示该 revolute 关节缺少限位。
+        <joint name="l_wheel_Joint" type="revolute">
+    -->
     <joint name="l_wheel_Joint" type="continuous">
         <origin xyz="1.857E-05 0.25 0.0275" rpy="0 0 0" />
         <parent link="lf1_Link" />
@@ -203,6 +214,10 @@
             </geometry>
         </collision>
     </link>
+    <!--
+        右轮同理：连续旋转车轮不应建模为缺少 lower/upper 的 revolute 关节。
+        continuous 表示没有有限角度范围，因此不会触发 joint_state_publisher 的限位警告。
+    -->
     <joint name="r_wheel_Joint" type="continuous">
         <origin xyz="1.5909E-05 -0.25 0.0275" rpy="0 0 0" />
         <parent link="rf1_Link" />
