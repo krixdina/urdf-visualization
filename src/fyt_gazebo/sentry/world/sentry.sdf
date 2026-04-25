@@ -1,0 +1,1149 @@
+<?xml version = '1.0'?>
+<sdf version='1.9'>
+  <world name='empty'>
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='ignition-gazebo-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='ignition-gazebo-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='ignition-gazebo-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Contact' filename='ignition-gazebo-contact-system'/>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name='ground_plane'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='sentry'>
+      <link name='base_link'>
+        <inertial>
+          <pose>-0.028344 0.031042 -0.036328 0 -0 0</pose>
+          <mass>3.31467</mass>
+          <inertia>
+            <ixx>0.023855000000000001</ixx>
+            <ixy>0.00067809499999999998</ixy>
+            <ixz>-0.00081289700000000003</ixz>
+            <iyy>0.043799400000000002</iyy>
+            <iyz>0.00094394800000000001</iyz>
+            <izz>0.060909199999999997</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_link_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/base_link.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__chassis_collision_1'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/chassis.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__armor_back_collision_2'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/armor_back.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__armor_back_indicator_collision_3'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/armor_back_indicator.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__armor_front_collision_4'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/armor_front.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__armor_front_indicator_collision_5'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/armor_front_indicator.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__armor_left_collision_6'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/armor_left.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__armor_left_indicator_collision_7'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/armor_left_indicator.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__armor_right_collision_8'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/armor_right.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='base_link_fixed_joint_lump__armor_right_indicator_collision_9'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/armor_right_indicator.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='base_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/base_link.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__chassis_visual_1'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/chassis.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.990196 1 1 1</diffuse>
+            <ambient>0.990196 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__armor_back_visual_2'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/armor_back.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.990196 1 1 1</diffuse>
+            <ambient>0.990196 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__armor_back_indicator_visual_3'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/armor_back_indicator.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 0 0 1</diffuse>
+            <ambient>1 0 0 1</ambient>
+          </material>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__armor_front_visual_4'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/armor_front.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.990196 1 1 1</diffuse>
+            <ambient>0.990196 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__armor_front_indicator_visual_5'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/armor_front_indicator.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 0 0 1</diffuse>
+            <ambient>1 0 0 1</ambient>
+          </material>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__armor_left_visual_6'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/armor_left.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.990196 1 1 1</diffuse>
+            <ambient>0.990196 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__armor_left_indicator_visual_7'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/armor_left_indicator.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 0 0 1</diffuse>
+            <ambient>1 0 0 1</ambient>
+          </material>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__armor_right_visual_8'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/armor_right.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.990196 1 1 1</diffuse>
+            <ambient>0.990196 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='base_link_fixed_joint_lump__armor_right_indicator_visual_9'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/armor_right_indicator.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 0 0 1</diffuse>
+            <ambient>1 0 0 1</ambient>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='left_back_wheel_joint' type='revolute'>
+        <pose>0 0 0 0 -0 0</pose>
+        <parent>base_link</parent>
+        <child>left_back_wheel</child>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='left_back_wheel'>
+        <pose>-0.235483 0.218713 -0.078787 0 -0 0</pose>
+        <inertial>
+          <pose>-8e-06 -0.012604 0 0 -0 0</pose>
+          <mass>1.8287599999999999</mass>
+          <inertia>
+            <ixx>0.00082951399999999995</ixx>
+            <ixy>-2.1180999999999999e-07</ixy>
+            <ixz>1.74569e-06</ixz>
+            <iyy>0.0014737000000000001</iyy>
+            <iyz>-7.8346600000000001e-07</iyz>
+            <izz>0.00083039099999999999</izz>
+          </inertia>
+        </inertial>
+        <collision name='left_back_wheel_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/left_back_wheel.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='left_back_wheel_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/left_back_wheel.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.808824 0.77451 0.735294 1</diffuse>
+            <ambient>0.808824 0.77451 0.735294 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='left_front_wheel_joint' type='revolute'>
+        <pose>0 0 0 0 -0 0</pose>
+        <parent>base_link</parent>
+        <child>left_front_wheel</child>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='left_front_wheel'>
+        <pose>0.235483 0.209188 -0.078787 0 -0 0</pose>
+        <inertial>
+          <pose>8e-06 -0.003079 0 0 -0 0</pose>
+          <mass>1.8287599999999999</mass>
+          <inertia>
+            <ixx>0.00082951599999999998</ixx>
+            <ixy>2.11795e-07</ixy>
+            <ixz>-1.74967e-06</ixz>
+            <iyy>0.00147372</iyy>
+            <iyz>-7.8337000000000001e-07</iyz>
+            <izz>0.000830406</izz>
+          </inertia>
+        </inertial>
+        <collision name='left_front_wheel_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/left_front_wheel.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='left_front_wheel_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/left_front_wheel.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.808824 0.77451 0.735294 1</diffuse>
+            <ambient>0.808824 0.77451 0.735294 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='right_back_wheel_joint' type='revolute'>
+        <pose>0 0 0 0 -0 0</pose>
+        <parent>base_link</parent>
+        <child>right_back_wheel</child>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='right_back_wheel'>
+        <pose>-0.235483 -0.2203 -0.078787 0 -0 0</pose>
+        <inertial>
+          <pose>-8e-06 0.014191 0 0 -0 0</pose>
+          <mass>1.8287599999999999</mass>
+          <inertia>
+            <ixx>0.00082951599999999998</ixx>
+            <ixy>2.11796e-07</ixy>
+            <ixz>1.7496900000000001e-06</ixz>
+            <iyy>0.00147372</iyy>
+            <iyz>7.8337100000000003e-07</iyz>
+            <izz>0.000830406</izz>
+          </inertia>
+        </inertial>
+        <collision name='right_back_wheel_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/right_back_wheel.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='right_back_wheel_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/right_back_wheel.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.808824 0.77451 0.735294 1</diffuse>
+            <ambient>0.808824 0.77451 0.735294 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='right_front_wheel_joint' type='revolute'>
+        <pose>0 0 0 0 -0 0</pose>
+        <parent>base_link</parent>
+        <child>right_front_wheel</child>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='right_front_wheel'>
+        <pose>0.235483 -0.208735 -0.078787 0 -0 0</pose>
+        <inertial>
+          <pose>2.1e-05 0.001598 -4e-06 0 -0 0</pose>
+          <mass>0.33310000000000001</mass>
+          <inertia>
+            <ixx>0.000117102</ixx>
+            <ixy>-2.6982400000000001e-08</ixy>
+            <ixz>-8.7543e-07</ixz>
+            <iyy>0.00020497899999999999</iyy>
+            <iyz>9.9805300000000002e-08</iyz>
+            <izz>0.000114994</izz>
+          </inertia>
+        </inertial>
+        <collision name='right_front_wheel_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/right_front_wheel.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='right_front_wheel_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/right_front_wheel.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='downgimbal_link_joint' type='revolute'>
+        <pose>0 0 0 0 -0 0</pose>
+        <parent>base_link</parent>
+        <child>downgimbal_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='downgimbal_link'>
+        <pose>0 0 0 0 -0 -0</pose>
+        <inertial>
+          <pose>0.01057 0.005673 0.109501 0 -0 0</pose>
+          <mass>3.1399400000000002</mass>
+          <inertia>
+            <ixx>0.00476166</ixx>
+            <ixy>-0.00011479100000000001</ixy>
+            <ixz>-0.00061874300000000005</ixz>
+            <iyy>0.0091310999999999996</iyy>
+            <iyz>0.000102088</iyz>
+            <izz>0.010017099999999999</izz>
+          </inertia>
+        </inertial>
+        <collision name='downgimbal_link_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/downgimbal_link.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='downgimbal_link_fixed_joint_lump__downIMU_link_collision_1'>
+          <pose>0.0120939231688496 0.000590727859089427 0.204761855171752 -0.0939396250069833 0.297443991350864 -0.0276058383089769</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/downIMU_link.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='downgimbal_link_fixed_joint_lump__downbarrel_link_collision_2'>
+          <pose>0.136457847972371 -0.00376787589476315 0.118986412475197 -0.0939396250069833 0.297443991350864 -0.0276058383089769</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/downbarrel_link.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='downgimbal_link_fixed_joint_lump__downcamera_link_collision_3'>
+          <pose>0.177692119911736 -0.0049065864019572 0.154495528960523 -0.0939396250069833 0.297443991350864 -0.0276058383089769</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/downcamera_link.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='downgimbal_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/downgimbal_link.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.941176 0.941176 0.941176 1</diffuse>
+            <ambient>0.941176 0.941176 0.941176 1</ambient>
+          </material>
+        </visual>
+        <visual name='downgimbal_link_fixed_joint_lump__downIMU_link_visual_1'>
+          <pose>0.0120939231688496 0.000590727859089427 0.204761855171752 -0.0939396250069833 0.297443991350864 -0.0276058383089769</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/downIMU_link.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.995098 1 1 1</diffuse>
+            <ambient>0.995098 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='downgimbal_link_fixed_joint_lump__downbarrel_link_visual_2'>
+          <pose>0.136457847972371 -0.00376787589476315 0.118986412475197 -0.0939396250069833 0.297443991350864 -0.0276058383089769</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/downbarrel_link.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.941176 0.941176 0.941176 1</diffuse>
+            <ambient>0.941176 0.941176 0.941176 1</ambient>
+          </material>
+        </visual>
+        <visual name='downgimbal_link_fixed_joint_lump__downcamera_link_visual_3'>
+          <pose>0.177692119911736 -0.0049065864019572 0.154495528960523 -0.0939396250069833 0.297443991350864 -0.0276058383089769</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/downcamera_link.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.990196 1 1 1</diffuse>
+            <ambient>0.990196 1 1 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='down_cmd_pitch__joint' type='revolute'>
+        <pose>0 -0 0 0 -0 0</pose>
+        <parent>downgimbal_link</parent>
+        <child>down_cmd_pitch</child>
+        <axis>
+          <xyz>0.02639 -0.999619 0.00809</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='down_cmd_pitch'>
+        <pose>-0.112952 0.065993 0.195519 0 0.297444 -0.027606</pose>
+        <inertial>
+          <pose>-9.4e-05 -0.001284 -8.6e-05 0 -0 0</pose>
+          <mass>0.27032099999999998</mass>
+          <inertia>
+            <ixx>9.33658e-05</ixx>
+            <ixy>-3.3817099999999999e-07</ixy>
+            <ixz>5.9007399999999999e-07</ixz>
+            <iyy>0.00015096400000000001</iyy>
+            <iyz>-3.4801899999999999e-07</iyz>
+            <izz>9.33319e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='down_cmd_pitch_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/down_cmd_pitch.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='down_cmd_pitch_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/down_cmd_pitch.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.245098 0.245098 0.245098 1</diffuse>
+            <ambient>0.245098 0.245098 0.245098 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='down_cmd_yaw_joint' type='revolute'>
+        <pose>0 -0 0 0 -0 0</pose>
+        <parent>downgimbal_link</parent>
+        <child>down_cmd_yaw</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='down_cmd_yaw'>
+        <pose>-0.001829 -0.003295 -0.023512 0 0 -0</pose>
+        <inertial>
+          <pose>0.001769 0.003182 0.016578 0 -0 0</pose>
+          <mass>0.27032099999999998</mass>
+          <inertia>
+            <ixx>9.3050199999999999e-05</ixx>
+            <ixy>5.0922899999999999e-07</ixy>
+            <ixz>-2.5319400000000001e-07</ixz>
+            <iyy>9.3647399999999994e-05</iyy>
+            <iyz>-4.1396799999999999e-07</iyz>
+            <izz>0.00015096400000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='down_cmd_yaw_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/down_cmd_yaw.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='down_cmd_yaw_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/down_cmd_yaw.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.245098 0.245098 0.245098 1</diffuse>
+            <ambient>0.245098 0.245098 0.245098 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='upgimbal_link_joint' type='revolute'>
+        <pose>0 0 0 0 -0 0</pose>
+        <parent>base_link</parent>
+        <child>upgimbal_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='upgimbal_link'>
+        <pose>0 -0 0.31 0 0 -0</pose>
+        <inertial>
+          <pose>0.06445 0.026181 0.098055 0 -0 0</pose>
+          <mass>2.0853600000000001</mass>
+          <inertia>
+            <ixx>0.0036675000000000002</ixx>
+            <ixy>-0.0024639900000000001</ixy>
+            <ixz>0.00104338</ixz>
+            <iyy>0.0099245600000000007</iyy>
+            <iyz>0.00055621299999999995</iyz>
+            <izz>0.011927699999999999</izz>
+          </inertia>
+        </inertial>
+        <collision name='upgimbal_link_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/upgimbal_link.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='upgimbal_link_fixed_joint_lump__lidar_link_collision_1'>
+          <pose>0.221932828762558 0.09681074071332919 0.06634999999999699 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/lidar_link.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='upgimbal_link_fixed_joint_lump__upIMU_link_collision_2'>
+          <pose>0.0141603828305071 -0.00271561732633889 0.184445666984459 0.0137672832640244 0.4427423654244491 0.005898470267037739</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/upIMU_link.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='upgimbal_link_fixed_joint_lump__upbarrel_link_collision_3'>
+          <pose>0.130928658474544 -0.00222764986082413 0.0797892999814742 0.013767283264024 0.442742365424448 0.00589847026703752</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/upbarrel_link.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <collision name='upgimbal_link_fixed_joint_lump__upcamera_link_collision_4'>
+          <pose>0.174051874455189 -0.00197340047587015 0.111954878139203 0.0137672832640321 0.4427423654244491 0.00589847026704101</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/upcamera_link.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='upgimbal_link_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/upgimbal_link.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='upgimbal_link_fixed_joint_lump__lidar_link_visual_1'>
+          <pose>0.221932828762558 0.09681074071332919 0.06634999999999699 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/lidar_link.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.941176 0.941176 0.941176 1</diffuse>
+            <ambient>0.941176 0.941176 0.941176 1</ambient>
+          </material>
+        </visual>
+        <visual name='upgimbal_link_fixed_joint_lump__upIMU_link_visual_2'>
+          <pose>0.0141603828305071 -0.00271561732633889 0.184445666984459 0.0137672832640244 0.4427423654244491 0.005898470267037739</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/upIMU_link.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.995098 1 1 1</diffuse>
+            <ambient>0.995098 1 1 1</ambient>
+          </material>
+        </visual>
+        <visual name='upgimbal_link_fixed_joint_lump__upbarrel_link_visual_3'>
+          <pose>0.130928658474544 -0.00222764986082413 0.0797892999814742 0.013767283264024 0.442742365424448 0.00589847026703752</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/upbarrel_link.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.941176 0.941176 0.941176 1</diffuse>
+            <ambient>0.941176 0.941176 0.941176 1</ambient>
+          </material>
+        </visual>
+        <visual name='upgimbal_link_fixed_joint_lump__upcamera_link_visual_4'>
+          <pose>0.174051874455189 -0.00197340047587015 0.111954878139203 0.0137672832640321 0.4427423654244491 0.00589847026704101</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/upcamera_link.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.990196 1 1 1</diffuse>
+            <ambient>0.990196 1 1 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='up_cmd_pitch_joint' type='revolute'>
+        <pose>-0 0 0 0 -0 0</pose>
+        <parent>upgimbal_link</parent>
+        <child>up_cmd_pitch</child>
+        <axis>
+          <xyz>-0.00533 -0.999983 -0.002527</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='up_cmd_pitch'>
+        <pose>-0.111257 0.039694 0.504297 0 0.442742 0.005898</pose>
+        <inertial>
+          <pose>-1.3e-05 -0.001284 -0.000127 0 -0 0</pose>
+          <mass>0.27032099999999998</mass>
+          <inertia>
+            <ixx>9.2764700000000003e-05</ixx>
+            <ixy>-2.12556e-08</ixy>
+            <ixz>8.53112e-08</ixz>
+            <iyy>0.00015096400000000001</iyy>
+            <iyz>-4.8479400000000005e-07</iyz>
+            <izz>9.3932900000000003e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='up_cmd_pitch_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/up_cmd_pitch.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='up_cmd_pitch_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/up_cmd_pitch.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.245098 0.245098 0.245098 1</diffuse>
+            <ambient>0.245098 0.245098 0.245098 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='up_cmd_yaw_joint' type='revolute'>
+        <pose>0 0 0 0 -0 0</pose>
+        <parent>upgimbal_link</parent>
+        <child>up_cmd_yaw</child>
+        <axis>
+          <xyz>-0 0 1</xyz>
+          <limit>
+            <lower>-10000000000000000</lower>
+            <upper>10000000000000000</upper>
+            <effort>inf</effort>
+            <velocity>inf</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='up_cmd_yaw'>
+        <pose>0.003537 0.001301 0.281488 -0 0 -0</pose>
+        <inertial>
+          <pose>-0.003418 -0.001255 0.016578 0 -0 0</pose>
+          <mass>0.27032099999999998</mass>
+          <inertia>
+            <ixx>9.3808500000000001e-05</ixx>
+            <ixy>3.7030799999999998e-07</ixy>
+            <ixz>4.6207699999999999e-07</ixz>
+            <iyy>9.2889100000000005e-05</iyy>
+            <iyz>1.4819300000000001e-07</iyz>
+            <izz>0.00015096400000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='up_cmd_yaw_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/up_cmd_yaw.STL</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='up_cmd_yaw_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>file:///home/kristina/fyt_gz_RMUC2023/src/fyt_gazebo/sentry/meshes/up_cmd_yaw.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>0.245098 0.245098 0.245098 1</diffuse>
+            <ambient>0.245098 0.245098 0.245098 1</ambient>
+          </material>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <frame name='armor_back_indicator_joint' attached_to='armor_back'>
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <frame name='armor_back_indicator' attached_to='armor_back_indicator_joint'/>
+      <frame name='armor_back_joint' attached_to='chassis'>
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <frame name='armor_back' attached_to='armor_back_joint'/>
+      <frame name='armor_front_indicator_joint' attached_to='armor_front'>
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <frame name='armor_front_indicator' attached_to='armor_front_indicator_joint'/>
+      <frame name='armor_front_joint' attached_to='chassis'>
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <frame name='armor_front' attached_to='armor_front_joint'/>
+      <frame name='armor_left_indicator_joint' attached_to='armor_left'>
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <frame name='armor_left_indicator' attached_to='armor_left_indicator_joint'/>
+      <frame name='armor_left_joint' attached_to='chassis'>
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <frame name='armor_left' attached_to='armor_left_joint'/>
+      <frame name='armor_right_indicator_joint' attached_to='armor_right'>
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <frame name='armor_right_indicator' attached_to='armor_right_indicator_joint'/>
+      <frame name='armor_right_joint' attached_to='chassis'>
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <frame name='armor_right' attached_to='armor_right_joint'/>
+      <frame name='chassis_joint' attached_to='base_link'>
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <frame name='chassis' attached_to='chassis_joint'/>
+      <frame name='downIMU_link_joint' attached_to='downgimbal_link'>
+        <pose>0.012094 0.000591 0.204762 -0.09394 0.297444 -0.027606</pose>
+      </frame>
+      <frame name='downIMU_link' attached_to='downIMU_link_joint'/>
+      <frame name='downbarrel_link_joint' attached_to='downgimbal_link'>
+        <pose>0.136458 -0.003768 0.118986 -0.09394 0.297444 -0.027606</pose>
+      </frame>
+      <frame name='downbarrel_link' attached_to='downbarrel_link_joint'/>
+      <frame name='downcamera_link_joint' attached_to='downgimbal_link'>
+        <pose>0.177692 -0.004907 0.154496 -0.09394 0.297444 -0.027606</pose>
+      </frame>
+      <frame name='downcamera_link' attached_to='downcamera_link_joint'/>
+      <frame name='lidar_link_joint' attached_to='upgimbal_link'>
+        <pose>0.221933 0.096811 0.06635 0 -0 0</pose>
+      </frame>
+      <frame name='lidar_link' attached_to='lidar_link_joint'/>
+      <frame name='upIMU_link_joint' attached_to='upgimbal_link'>
+        <pose>0.01416 -0.002716 0.184446 0.013767 0.442742 0.005898</pose>
+      </frame>
+      <frame name='upIMU_link' attached_to='upIMU_link_joint'/>
+      <frame name='upbarrel_link_joint' attached_to='upgimbal_link'>
+        <pose>0.130929 -0.002228 0.079789 0.013767 0.442742 0.005898</pose>
+      </frame>
+      <frame name='upbarrel_link' attached_to='upbarrel_link_joint'/>
+      <frame name='upcamera_link_joint' attached_to='upgimbal_link'>
+        <pose>0.174052 -0.001973 0.111955 0.013767 0.442742 0.005898</pose>
+      </frame>
+      <frame name='upcamera_link' attached_to='upcamera_link_joint'/>
+      <pose>-0 0 0.180961 0 -0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 -0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.1 -0.9</direction>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.01</linear>
+        <constant>0.90000000000000002</constant>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>

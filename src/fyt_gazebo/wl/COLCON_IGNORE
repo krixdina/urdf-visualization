@@ -1,0 +1,2 @@
+This is the original ROS1 catkin package. Its contents were migrated to the
+ROS2 ament package wheel_legged_robot_refer for colcon builds.
