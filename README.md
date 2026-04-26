@@ -1,0 +1,3 @@
+### 如何将自动生成的ros1 urdf模型迁移到ros2并在rviz2中展示
+#### 提示词如下
+这个项目用于在ros2 rviz2中展示urdf，sentry文件夹是一个完整的包含所有功能的用于展示urdf的ros2包，我现在希望能将wl包内的urdf模型通过ros2 launch命令显示在rviz2中，但是wl包内默认启动方式是ros1，请你参考完整的ros2功能包sentry，包括文件组织方式等具体实现，创建一个名为wheel_legged_robot_refer的ros2 package，将wl文件夹下的内容完整的迁移过去，同时将URDF mesh路径改为package://格式的相对路径，同时为原ROS1 catkin 包添加 COLCON_IGNORE，防止使用colcon build编译整个包时不会被ROS1干扰。让我能通过rviz2查看wl中的urdf文件，在完成任务后，请你使用colcon build进行编译验证，同时确保launch的运行不会出错。
